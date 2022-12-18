@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "alacritty"
-#define TERMCLASS "Alacritty"
+#define TERMINAL "st"
+#define TERMCLASS "St"
 #define BROWSER "firefox"
 
 /* appearance */
@@ -151,8 +151,9 @@ static Key keys[] = {
     /* modifier                     key        function        argument */
     STACKKEYS(MODKEY, focus) STACKKEYS(MODKEY | ShiftMask, push)
     /* { MODKEY|ShiftMask,		XK_Escape,	spawn,	SHCMD("") }, */
-    {MODKEY, XK_grave, spawn, {.v = (const char *[]){"dmenuunicode", NULL}}},
-    /* { MODKEY|ShiftMask,		XK_grave,	togglescratch,	SHCMD("")
+    {MODKEY, XK_e, spawn, {.v = (const char *[]){"dmenu-emoji", NULL}}},
+    /* { MODKEY|ShiftMask,		XK_grave,	togglescratch,
+     * SHCMD("")
      * },
      */
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
@@ -178,21 +179,20 @@ static Key keys[] = {
      {.v = (const char *[]){"sysact", NULL}}},
 
     {MODKEY, XK_Tab, view, {0}},
-    /* { MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("")
+    /* { MODKEY|ShiftMask,		XK_Tab,		spawn, SHCMD("")
      * },
      */
     {MODKEY, XK_q, killclient, {0}},
     {MODKEY | ShiftMask, XK_q, spawn, {.v = (const char *[]){"sysact", NULL}}},
+    {MODKEY | ShiftMask,
+     XK_s,
+     spawn,
+     {.v = (const char *[]){"flameshot", "gui", NULL}}},
     {MODKEY, XK_w, spawn, {.v = (const char *[]){BROWSER, NULL}}},
     {MODKEY | ShiftMask,
      XK_w,
      spawn,
-     {.v = (const char *[]){TERMINAL, "-e", "sudo", "nmtui", NULL}}},
-    {MODKEY, XK_e, spawn,
-     SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook")},
-    {MODKEY | ShiftMask, XK_e, spawn,
-     SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile "
-                    "~/.config/abook/addressbook")},
+     {.v = (const char *[]){"networkmanager_dmenu", NULL}}},
     {MODKEY,
      XK_r,
      spawn,
@@ -201,10 +201,9 @@ static Key keys[] = {
      XK_r,
      spawn,
      {.v = (const char *[]){TERMINAL, "-e", "htop", NULL}}},
-    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},             /* tile */
-    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[1]}}, /* bstack */
-    {MODKEY, XK_y, setlayout, {.v = &layouts[2]}},             /* spiral */
-    {MODKEY | ShiftMask, XK_y, setlayout, {.v = &layouts[3]}}, /* dwindle */
+    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}}, /* tile */
+    /*{MODKEY, XK_y, setlayout, {.v = &layouts[2]}},             /* spiral */
+    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[3]}}, /* dwindle */
     {MODKEY, XK_u, setlayout, {.v = &layouts[4]}},             /* deck */
     {MODKEY | ShiftMask, XK_u, setlayout, {.v = &layouts[5]}}, /* monocle */
     {MODKEY, XK_i, setlayout, {.v = &layouts[6]}}, /* centeredmaster */
@@ -214,40 +213,18 @@ static Key keys[] = {
      {.v = &layouts[7]}}, /* centeredfloatingmaster */
     {MODKEY, XK_o, incnmaster, {.i = +1}},
     {MODKEY | ShiftMask, XK_o, incnmaster, {.i = -1}},
-    {MODKEY, XK_p, spawn, {.v = (const char *[]){"mpc", "toggle", NULL}}},
-    {MODKEY | ShiftMask, XK_p, spawn, SHCMD("mpc pause; pauseallmpv")},
-    {MODKEY,
-     XK_bracketleft,
-     spawn,
-     {.v = (const char *[]){"mpc", "seek", "-10", NULL}}},
-    {MODKEY | ShiftMask,
-     XK_bracketleft,
-     spawn,
-     {.v = (const char *[]){"mpc", "seek", "-60", NULL}}},
-    {MODKEY,
-     XK_bracketright,
-     spawn,
-     {.v = (const char *[]){"mpc", "seek", "+10", NULL}}},
-    {MODKEY | ShiftMask,
-     XK_bracketright,
-     spawn,
-     {.v = (const char *[]){"mpc", "seek", "+60", NULL}}},
-    {MODKEY, XK_backslash, view, {0}},
-    /* { MODKEY|ShiftMask,		XK_backslash,		spawn,		SHCMD("")
-     * },
-     */
 
     {MODKEY, XK_a, togglegaps, {0}},
     {MODKEY | ShiftMask, XK_a, defaultgaps, {0}},
     {MODKEY, XK_s, togglesticky, {0}},
-    /* { MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("")
+    /* { MODKEY|ShiftMask,		XK_s,		spawn, SHCMD("")
      * },
      */
     {MODKEY, XK_d, spawn, {.v = (const char *[]){"dmenu_run", NULL}}},
     {MODKEY | ShiftMask,
      XK_d,
      spawn,
-     {.v = (const char *[]){"passmenu", NULL}}},
+     {.v = (const char *[]){"keepassxc", NULL}}},
     {MODKEY, XK_f, togglefullscr, {0}},
     {MODKEY | ShiftMask, XK_f, setlayout, {.v = &layouts[8]}},
     {MODKEY, XK_g, shiftview, {.i = -1}},
@@ -258,57 +235,42 @@ static Key keys[] = {
     {MODKEY, XK_semicolon, shiftview, {.i = 1}},
     {MODKEY | ShiftMask, XK_semicolon, shifttag, {.i = 1}},
     {MODKEY, XK_apostrophe, togglescratch, {.ui = 1}},
-    /* { MODKEY|ShiftMask,		XK_apostrophe,	spawn,		SHCMD("")
-     * },
-     */
     {MODKEY | ShiftMask, XK_apostrophe, togglesmartgaps, {0}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY | ShiftMask, XK_Return, togglescratch, {.ui = 0}},
 
     {MODKEY, XK_z, incrgaps, {.i = +3}},
-    /* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("")
+    /* { MODKEY|ShiftMask,		XK_z,		spawn, SHCMD("")
      * },
      */
     {MODKEY, XK_x, incrgaps, {.i = -3}},
-    /* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("")
+    /* { MODKEY|ShiftMask,		XK_x,		spawn, SHCMD("")
      * },
      */
-    {MODKEY,
-     XK_c,
-     spawn,
-     {.v = (const char *[]){TERMINAL, "-e", "profanity", NULL}}},
-    /* { MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("")
+    /* { MODKEY|ShiftMask,		XK_c,		spawn, SHCMD("")
      * },
      */
     /* V is automatically bound above in STACKKEYS */
     {MODKEY, XK_b, togglebar, {0}},
-    /* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("")
+    /* { MODKEY|ShiftMask,		XK_b,		spawn, SHCMD("")
      * },
      */
     {MODKEY,
      XK_n,
      spawn,
-     {.v = (const char *[]){TERMINAL, "-e", "nvim", "-c", "VimwikiIndex",
+     {.v = (const char *[]){TERMINAL, "-e", "lvim", "~/.src-repos/dwm/config.h",
                             NULL}}},
-    {MODKEY | ShiftMask, XK_n, spawn,
-     SHCMD(TERMINAL " -e newsboat ; pkill -RTMIN+6 dwmblocks")},
+
+    {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf -D", NULL}}},
+    {MODKEY | ControlMask,
+     XK_t,
+     spawn,
+     {.v = (const char *[]){TERMINAL, "-e", "arigram", NULL}}},
+
     {MODKEY,
      XK_m,
      spawn,
-     {.v = (const char *[]){TERMINAL, "-e", "ncmpcpp", NULL}}},
-    {MODKEY | ShiftMask, XK_m, spawn,
-     SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof "
-           "dwmblocks)")},
-    {MODKEY, XK_comma, spawn, {.v = (const char *[]){"mpc", "prev", NULL}}},
-    {MODKEY | ShiftMask,
-     XK_comma,
-     spawn,
-     {.v = (const char *[]){"mpc", "seek", "0%", NULL}}},
-    {MODKEY, XK_period, spawn, {.v = (const char *[]){"mpc", "next", NULL}}},
-    {MODKEY | ShiftMask,
-     XK_period,
-     spawn,
-     {.v = (const char *[]){"mpc", "repeat", NULL}}},
+     {.v = (const char *[]){TERMINAL, "-e", "termusic", NULL}}},
 
     {MODKEY, XK_Left, focusmon, {.i = -1}},
     {MODKEY | ShiftMask, XK_Left, tagmon, {.i = -1}},
@@ -319,27 +281,9 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_Page_Up, shifttag, {.i = -1}},
     {MODKEY, XK_Page_Down, shiftview, {.i = +1}},
     {MODKEY | ShiftMask, XK_Page_Down, shifttag, {.i = +1}},
-    {MODKEY, XK_Insert, spawn,
-     SHCMD("xdotool type $(grep -v '^#' ~/.local/share/larbs/snippets | dmenu "
-           "-i -l 50 | cut -d' ' -f1)")},
-
-    {MODKEY, XK_F1, spawn,
-     SHCMD("groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -")},
-    {MODKEY, XK_F2, spawn, {.v = (const char *[]){"tutorialvids", NULL}}},
-    {MODKEY, XK_F3, spawn, {.v = (const char *[]){"displayselect", NULL}}},
-    {MODKEY, XK_F4, spawn,
+    {MODKEY | ShiftMask, XK_m, spawn,
      SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)")},
     {MODKEY, XK_F5, xrdb, {.v = NULL}},
-    {MODKEY, XK_F6, spawn, {.v = (const char *[]){"torwrap", NULL}}},
-    {MODKEY, XK_F7, spawn, {.v = (const char *[]){"td-toggle", NULL}}},
-    {MODKEY, XK_F8, spawn, {.v = (const char *[]){"mw", "-Y", NULL}}},
-    {MODKEY, XK_F9, spawn, {.v = (const char *[]){"dmenumount", NULL}}},
-    {MODKEY, XK_F10, spawn, {.v = (const char *[]){"dmenuumount", NULL}}},
-    {MODKEY, XK_F11, spawn,
-     SHCMD("mpv --untimed --no-cache --no-osc --no-input-default-bindings "
-           "--profile=low-latency --input-conf=/dev/null --title=webcam $(ls "
-           "/dev/video[0,2,4,6,8] | tail -n 1)")},
-    {MODKEY, XK_F12, spawn, SHCMD("remaps")},
     {MODKEY, XK_space, zoom, {0}},
     {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
 
@@ -387,8 +331,8 @@ static Key keys[] = {
      {.v = (const char *[]){TERMINAL, "-e", "ncmpcpp", NULL}}},
     {0, XF86XK_AudioMicMute, spawn,
      SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle")},
-    /* { 0, XF86XK_PowerOff,		spawn,		{.v = (const char*[]){ "sysact",
-       NULL } } }, */
+    /* { 0, XF86XK_PowerOff,		spawn,		{.v = (const char*[]){
+       "sysact", NULL } } }, */
     {0,
      XF86XK_Calculator,
      spawn,
