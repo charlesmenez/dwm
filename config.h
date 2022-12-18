@@ -261,7 +261,7 @@ static Key keys[] = {
      {.v = (const char *[]){TERMINAL, "-e", "lvim", "~/.src-repos/dwm/config.h",
                             NULL}}},
 
-    {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf -D", NULL}}},
+    {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf", "-D", NULL}}},
     {MODKEY | ControlMask,
      XK_t,
      spawn,
