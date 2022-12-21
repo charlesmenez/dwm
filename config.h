@@ -153,6 +153,10 @@ static Key keys[] = {
     /* { MODKEY|ShiftMask,		XK_Escape,	spawn,	SHCMD("") }, */
     {MODKEY, XK_e, spawn, {.v = (const char *[]){"dmenu-emoji", NULL}}},
     {MODKEY | ShiftMask,
+     XK_q,
+     spawn,
+     {.v = (const char *[]){"pkill", "dwm", NULL}}},
+    {MODKEY | ShiftMask,
      XK_e,
      spawn,
      {.v = (const char *[]){"dwm-colors", NULL}}},
