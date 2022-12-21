@@ -123,8 +123,8 @@ static const char *termcmd[] = {TERMINAL, NULL};
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-    {"color11", STRING, &normbordercolor},
-    {"color4", STRING, &selbordercolor},
+    {"color0", STRING, &normbordercolor},
+    {"color11", STRING, &selbordercolor},
     {"color0", STRING, &normbgcolor},
     {"color4", STRING, &normfgcolor},
     {"color0", STRING, &selfgcolor},
@@ -152,6 +152,10 @@ static Key keys[] = {
     STACKKEYS(MODKEY, focus) STACKKEYS(MODKEY | ShiftMask, push)
     /* { MODKEY|ShiftMask,		XK_Escape,	spawn,	SHCMD("") }, */
     {MODKEY, XK_e, spawn, {.v = (const char *[]){"dmenu-emoji", NULL}}},
+    {MODKEY | ShiftMask,
+     XK_e,
+     spawn,
+     {.v = (const char *[]){"dwm-colors", NULL}}},
     /* { MODKEY|ShiftMask,		XK_grave,	togglescratch,
      * SHCMD("")
      * },
