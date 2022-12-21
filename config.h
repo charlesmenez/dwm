@@ -167,24 +167,10 @@ static Key keys[] = {
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
             TAGKEYS(XK_9, 8){MODKEY, XK_0, view, {.ui = ~0}},
+
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
-    {MODKEY, XK_minus, spawn,
-     SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof "
-           "dwmblocks)")},
-    {MODKEY | ShiftMask, XK_minus, spawn,
-     SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-; kill -44 $(pidof "
-           "dwmblocks)")},
-    {MODKEY, XK_equal, spawn,
-     SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof "
-           "dwmblocks)")},
-    {MODKEY | ShiftMask, XK_equal, spawn,
-     SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+; kill -44 $(pidof "
-           "dwmblocks)")},
+
     {MODKEY, XK_BackSpace, spawn, {.v = (const char *[]){"sysact", NULL}}},
-    {MODKEY | ShiftMask,
-     XK_BackSpace,
-     spawn,
-     {.v = (const char *[]){"sysact", NULL}}},
 
     {MODKEY, XK_Tab, view, {0}},
     /* { MODKEY|ShiftMask,		XK_Tab,		spawn, SHCMD("")
@@ -208,9 +194,8 @@ static Key keys[] = {
      XK_r,
      spawn,
      {.v = (const char *[]){TERMINAL, "-e", "htop", NULL}}},
-    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}}, /* tile */
-    /*{MODKEY, XK_y, setlayout, {.v = &layouts[2]}},             /* spiral */
     {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[3]}}, /* dwindle */
+    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},             /* tile */
     {MODKEY, XK_u, setlayout, {.v = &layouts[4]}},             /* deck */
     {MODKEY | ShiftMask, XK_u, setlayout, {.v = &layouts[5]}}, /* monocle */
     {MODKEY, XK_i, setlayout, {.v = &layouts[6]}}, /* centeredmaster */
@@ -345,17 +330,8 @@ static Key keys[] = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
  * ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
-/* click                event mask      button          function        argument
- */
-#ifndef __OpenBSD__
-    {ClkWinTitle, 0, Button2, zoom, {0}},
-    {ClkStatusText, 0, Button1, sigdwmblocks, {.i = 1}},
-    {ClkStatusText, 0, Button2, sigdwmblocks, {.i = 2}},
-    {ClkStatusText, 0, Button3, sigdwmblocks, {.i = 3}},
-    {ClkStatusText, 0, Button4, sigdwmblocks, {.i = 4}},
-    {ClkStatusText, 0, Button5, sigdwmblocks, {.i = 5}},
-    {ClkStatusText, ShiftMask, Button1, sigdwmblocks, {.i = 6}},
-#endif
+    /* click                event mask      button          function argument
+     */
     {ClkStatusText, ShiftMask, Button3, spawn,
      SHCMD(TERMINAL " -e nvim ~/.local/src/dwmblocks/config.h")},
     {ClkClientWin, MODKEY, Button1, movemouse, {0}},
