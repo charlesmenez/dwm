@@ -191,7 +191,6 @@ static Key keys[] = {
      * },
      */
     {MODKEY, XK_q, killclient, {0}},
-    {MODKEY | ShiftMask, XK_q, spawn, {.v = (const char *[]){"sysact", NULL}}},
     {MODKEY | ShiftMask,
      XK_s,
      spawn,
