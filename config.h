@@ -269,6 +269,12 @@ static Key keys[] = {
                             NULL}}},
 
     {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf", "-D", NULL}}},
+
+    {MODKEY | ControlMask,
+     XK_y,
+     spawn,
+     {.v = (const char *[]){"mpv-clip", NULL}}},
+
     {MODKEY | ControlMask,
      XK_t,
      spawn,
