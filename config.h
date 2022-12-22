@@ -256,6 +256,11 @@ static Key keys[] = {
     {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf", "-D", NULL}}},
 
     {MODKEY | ControlMask,
+     XK_b,
+     spawn,
+     {.v = (const char *[]){"bookmarks", NULL}}},
+
+    {MODKEY | ControlMask,
      XK_y,
      spawn,
      {.v = (const char *[]){"mpv-clip", NULL}}},
