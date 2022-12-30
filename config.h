@@ -152,10 +152,7 @@ static Key keys[] = {
     STACKKEYS(MODKEY, focus) STACKKEYS(MODKEY | ShiftMask, push)
     /* { MODKEY|ShiftMask,		XK_Escape,	spawn,	SHCMD("") }, */
     {MODKEY, XK_e, spawn, {.v = (const char *[]){"dmenu-emoji", NULL}}},
-    {MODKEY | ShiftMask,
-     XK_q,
-     spawn,
-     {.v = (const char *[]){"pkill", "dwm", NULL}}},
+    {MODKEY, XK_q, spawn, {.v = (const char *[]){"pkill", "dwm", NULL}}},
     {MODKEY | ShiftMask,
      XK_e,
      spawn,
@@ -176,7 +173,7 @@ static Key keys[] = {
     /* { MODKEY|ShiftMask,		XK_Tab,		spawn, SHCMD("")
      * },
      */
-    {MODKEY, XK_q, killclient, {0}},
+    {MODKEY | ShiftMask, XK_q, killclient, {0}},
     {MODKEY | ShiftMask,
      XK_s,
      spawn,
@@ -268,7 +265,7 @@ static Key keys[] = {
     {MODKEY | ControlMask,
      XK_t,
      spawn,
-     {.v = (const char *[]){TERMINAL, "-e", "arigram", NULL}}},
+     {.v = (const char *[]){"telegram-choice", NULL}}},
 
     {MODKEY,
      XK_m,
