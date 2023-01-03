@@ -331,7 +331,7 @@ static Button buttons[] = {
     /* click                event mask      button          function argument
      */
     {ClkStatusText, ShiftMask, Button3, spawn,
-     SHCMD(TERMINAL " -e lvim ~/.src-repos/dwmblocks/config.h")},
+     SHCMD(TERMINAL " -e lvim ~/.src-repos/dwm/config.h")},
     {ClkClientWin, MODKEY, Button1, movemouse, {0}},
     {ClkClientWin, MODKEY, Button2, defaultgaps, {0}},
     {ClkClientWin, MODKEY, Button3, resizemouse, {0}},
