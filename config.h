@@ -244,11 +244,7 @@ static Key keys[] = {
     /* { MODKEY|ShiftMask,		XK_b,		spawn, SHCMD("")
      * },
      */
-    {MODKEY,
-     XK_n,
-     spawn,
-     {.v = (const char *[]){TERMINAL, "-e", "lvim", "~/.src-repos/dwm/config.h",
-                            NULL}}},
+    {MODKEY, XK_c, spawn, SHCMD(TERMINAL " -e lvim ~/.src-repos/dwm/config.h")},
 
     {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf", "-D", NULL}}},
     {MODKEY | ShiftMask,
