@@ -229,21 +229,8 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_Return, togglescratch, {.ui = 0}},
 
     {MODKEY, XK_z, incrgaps, {.i = +3}},
-    /* { MODKEY|ShiftMask,		XK_z,		spawn, SHCMD("")
-     * },
-     */
     {MODKEY, XK_x, incrgaps, {.i = -3}},
-    /* { MODKEY|ShiftMask,		XK_x,		spawn, SHCMD("")
-     * },
-     */
-    /* { MODKEY|ShiftMask,		XK_c,		spawn, SHCMD("")
-     * },
-     */
-    /* V is automatically bound above in STACKKEYS */
     {MODKEY, XK_b, togglebar, {0}},
-    /* { MODKEY|ShiftMask,		XK_b,		spawn, SHCMD("")
-     * },
-     */
     {MODKEY, XK_c, spawn, SHCMD(TERMINAL " -e lvim ~/.src-repos/dwm/config.h")},
 
     {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf", "-D", NULL}}},
