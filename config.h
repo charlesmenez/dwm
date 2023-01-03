@@ -251,6 +251,10 @@ static Key keys[] = {
                             NULL}}},
 
     {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf", "-D", NULL}}},
+    {MODKEY | ShiftMask,
+     XK_y,
+     spawn,
+     {.v = (const char *[]){"Dmenu-Streaming", NULL}}},
 
     {MODKEY | ControlMask,
      XK_b,
