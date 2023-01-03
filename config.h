@@ -287,18 +287,10 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_Page_Down, shifttag, {.i = +1}},
     {MODKEY | ShiftMask, XK_m, spawn,
      SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)")},
-    {MODKEY, XK_F5, xrdb, {.v = NULL}},
     {MODKEY, XK_space, zoom, {0}},
     {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
 
-    {0, XK_Print, spawn, SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png")},
-    {ShiftMask, XK_Print, spawn, {.v = (const char *[]){"maimpick", NULL}}},
-    {MODKEY, XK_Print, spawn, {.v = (const char *[]){"dmenurecord", NULL}}},
-
-    {0,
-     XF86XK_Calculator,
-     spawn,
-     {.v = (const char *[]){TERMINAL, "-e", "bc", "-l", NULL}}},
+    {MODKEY, XK_p, spawn, SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png")},
 
     /* { MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },
      */
@@ -339,7 +331,7 @@ static Button buttons[] = {
     /* click                event mask      button          function argument
      */
     {ClkStatusText, ShiftMask, Button3, spawn,
-     SHCMD(TERMINAL " -e nvim ~/.local/src/dwmblocks/config.h")},
+     SHCMD(TERMINAL " -e lvim ~/.src-repos/dwmblocks/config.h")},
     {ClkClientWin, MODKEY, Button1, movemouse, {0}},
     {ClkClientWin, MODKEY, Button2, defaultgaps, {0}},
     {ClkClientWin, MODKEY, Button3, resizemouse, {0}},
@@ -351,5 +343,4 @@ static Button buttons[] = {
     {ClkTagBar, MODKEY, Button3, toggletag, {0}},
     {ClkTagBar, 0, Button4, shiftview, {.i = -1}},
     {ClkTagBar, 0, Button5, shiftview, {.i = 1}},
-    {ClkRootWin, 0, Button2, togglebar, {0}},
 };
