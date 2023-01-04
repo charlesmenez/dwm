@@ -6,7 +6,7 @@
 #define BROWSER "firefox"
 
 /* appearance */
-static unsigned int borderpx = 3; /* border pixel of windows */
+static unsigned int borderpx = 2; /* border pixel of windows */
 static unsigned int snap = 0;     /* snap pixel */
 static unsigned int gappih = 20;  /* horiz inner gap between windows */
 static unsigned int gappiv = 10;  /* vert inner gap between windows */
@@ -157,10 +157,7 @@ static Key keys[] = {
      XK_e,
      spawn,
      {.v = (const char *[]){"dwm-colors", NULL}}},
-    /* { MODKEY|ShiftMask,		XK_grave,	togglescratch,
-     * SHCMD("")
-     * },
-     */
+
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
             TAGKEYS(XK_9, 8){MODKEY, XK_0, view, {.ui = ~0}},
@@ -170,9 +167,6 @@ static Key keys[] = {
     {MODKEY, XK_BackSpace, spawn, {.v = (const char *[]){"sysact", NULL}}},
 
     {MODKEY, XK_Tab, view, {0}},
-    /* { MODKEY|ShiftMask,		XK_Tab,		spawn, SHCMD("")
-     * },
-     */
     {MODKEY | ShiftMask, XK_q, killclient, {0}},
     {MODKEY | ShiftMask,
      XK_s,
@@ -206,9 +200,6 @@ static Key keys[] = {
     {MODKEY, XK_a, togglegaps, {0}},
     {MODKEY | ShiftMask, XK_a, defaultgaps, {0}},
     {MODKEY, XK_s, togglesticky, {0}},
-    /* { MODKEY|ShiftMask,		XK_s,		spawn, SHCMD("")
-     * },
-     */
     {MODKEY, XK_d, spawn, {.v = (const char *[]){"dmenu_run", NULL}}},
     {MODKEY | ShiftMask,
      XK_d,
@@ -247,7 +238,7 @@ static Key keys[] = {
     {MODKEY | ControlMask,
      XK_y,
      spawn,
-     {.v = (const char *[]){"mpv-clip", NULL}}},
+     {.v = (const char *[]){"youtube-dmenu", NULL}}},
 
     {MODKEY | ControlMask,
      XK_t,
