@@ -76,19 +76,11 @@ static int resizehints = 0; /* 1 means respect size hints in tiled resizals */
 #include "vanitygaps.c"
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    {"[]=", tile},   /* Default: Master on left, slaves on right */
-    {"TTT", bstack}, /* Master on top, slaves on bottom */
-
-    {"[@]", spiral},   /* Fibonacci spiral */
-    {"[\\]", dwindle}, /* Decreasing in size right and leftward */
-
-    {"[D]", deck},    /* Master on left, slaves in monocle-like mode on right */
-    {"[M]", monocle}, /* All windows on top of eachother */
-
-    {"|M|", centeredmaster},         /* Master in middle, slaves on sides */
-    {">M>", centeredfloatingmaster}, /* Same but master floats */
-
-    {"><>", NULL}, /* no layout function means floating behavior */
+    {"[@]", spiral},         /* Fibonacci spiral */
+    {"|M|", centeredmaster}, /* Master in middle, slaves on sides */
+    {"[]=", tile},           /* Default: Master on left, slaves on right */
+    {"[\\]", dwindle},       /* Decreasing in size right and leftward */
+    {"><>", NULL},           /* no layout function means floating behavior */
     {NULL, NULL},
 };
 
@@ -185,15 +177,15 @@ static Key keys[] = {
      XK_r,
      spawn,
      {.v = (const char *[]){TERMINAL, "-e", "htop", NULL}}},
-    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[3]}}, /* dwindle */
-    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},             /* tile */
-    {MODKEY, XK_u, setlayout, {.v = &layouts[4]}},             /* deck */
-    {MODKEY | ShiftMask, XK_u, setlayout, {.v = &layouts[5]}}, /* monocle */
-    {MODKEY, XK_i, setlayout, {.v = &layouts[6]}}, /* centeredmaster */
+
+    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}}, /* spiral */
     {MODKEY | ShiftMask,
-     XK_i,
+     XK_t,
      setlayout,
-     {.v = &layouts[7]}}, /* centeredfloatingmaster */
+     {.v = &layouts[1]}}, /* centeredmaster */
+
+    {MODKEY | ShiftMask, XK_u, setlayout, {.v = &layouts[2]}}, /* tile */
+
     {MODKEY, XK_o, incnmaster, {.i = +1}},
     {MODKEY | ShiftMask, XK_o, incnmaster, {.i = -1}},
 
