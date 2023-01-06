@@ -218,14 +218,14 @@ static Key keys[] = {
     {MODKEY, XK_c, spawn, SHCMD(TERMINAL " -e lvim ~/.src-repos/dwm/config.h")},
 
     {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf", "-D", NULL}}},
-    {MODKEY,
-     XK_n,
+    {MODKEY | ControlMask,
+     XK_m,
      spawn,
-     {.v = (const char *[]){"st", "-e", "ytccf", "--no-thumbnails", NULL}}},
+     {.v = (const char *[]){"Dmenu-Streaming", NULL}}},
     {MODKEY | ControlMask,
      XK_y,
      spawn,
-     {.v = (const char *[]){"Dmenu-Streaming", NULL}}},
+     {.v = (const char *[]){"st", "-e", "ytccf", "--no-thumbnails", NULL}}},
 
     {MODKEY | ControlMask,
      XK_b,
