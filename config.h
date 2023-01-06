@@ -116,7 +116,7 @@ static const char *termcmd[] = {TERMINAL, NULL};
  */
 ResourcePref resources[] = {
     {"color0", STRING, &normbordercolor},
-    {"color11", STRING, &selbordercolor},
+    {"color14", STRING, &selbordercolor},
     {"color0", STRING, &normbgcolor},
     {"color4", STRING, &normfgcolor},
     {"color0", STRING, &selfgcolor},
@@ -218,7 +218,11 @@ static Key keys[] = {
     {MODKEY, XK_c, spawn, SHCMD(TERMINAL " -e lvim ~/.src-repos/dwm/config.h")},
 
     {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf", "-D", NULL}}},
-    {MODKEY | ShiftMask,
+    {MODKEY,
+     XK_n,
+     spawn,
+     {.v = (const char *[]){"st", "-e", "ytccf", "--no-thumbnails", NULL}}},
+    {MODKEY | ControlMask,
      XK_y,
      spawn,
      {.v = (const char *[]){"Dmenu-Streaming", NULL}}},
@@ -228,7 +232,7 @@ static Key keys[] = {
      spawn,
      {.v = (const char *[]){"bookmarks", NULL}}},
 
-    {MODKEY | ControlMask,
+    {MODKEY | ShiftMask,
      XK_y,
      spawn,
      {.v = (const char *[]){"youtube-dmenu", NULL}}},
