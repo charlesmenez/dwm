@@ -185,6 +185,7 @@ static Key keys[] = {
      {.v = &layouts[1]}}, /* centeredmaster */
 
     {MODKEY | ShiftMask, XK_u, setlayout, {.v = &layouts[2]}}, /* tile */
+    {MODKEY, XK_u, setlayout, {.v = &layouts[4]}},             /* floating */
 
     {MODKEY, XK_o, incnmaster, {.i = +1}},
     {MODKEY | ShiftMask, XK_o, incnmaster, {.i = -1}},
