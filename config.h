@@ -9,7 +9,7 @@
 static unsigned int borderpx = 2; /* border pixel of windows */
 static unsigned int snap = 0;     /* snap pixel */
 static unsigned int gappih = 20;  /* horiz inner gap between windows */
-static unsigned int gappiv = 10;  /* vert inner gap between windows */
+static unsigned int gappiv = 20;  /* vert inner gap between windows */
 static unsigned int gappoh =
     20; /* horiz outer gap between windows and screen edge */
 static unsigned int gappov =
