@@ -21,8 +21,8 @@ static int smartgaps =
 static int showbar = 1; /* 0 means no bar */
 static int topbar = 1;  /* 0 means bottom bar */
 static char *fonts[] = {
-    "monospace:size=8",
-    "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"};
+    "monospace:size=8:autohint=true", "Font Awesome 5 Free:size=15",
+    "NotoColorEmoji:pixelsize=8:antialias=true:autohint=true"};
 static char normbgcolor[] = "#222222";
 static char normbordercolor[] = "#444444";
 static char normfgcolor[] = "#bbbbbb";
@@ -50,7 +50,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+static const char *tags[] = {"", "", "3", "4", "5", "6", "7", "8", "9"};
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -69,7 +69,7 @@ static const Rule rules[] = {
 
 /* layout(s) */
 static float mfact = 0.55;  /* factor of master area size [0.05..0.95] */
-static int nmaster = 1;     /* number of clients in master area */
+static int nmaster = 2;     /* number of clients in master area */
 static int resizehints = 0; /* 1 means respect size hints in tiled resizals */
 #define FORCE_VSPLIT                                                           \
   1 /* nrowgrid layout: force two clients to always split vertically */
