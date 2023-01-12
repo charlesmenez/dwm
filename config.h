@@ -50,7 +50,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = {"one", "two",   "tree",  "four", "five",
+static const char *tags[] = {"one", "two",   "three", "four", "five",
                              "six", "seven", "eight", "nine"};
 
 static const Rule rules[] = {
