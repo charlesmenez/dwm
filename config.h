@@ -246,7 +246,7 @@ static Key keys[] = {
     {MODKEY,
      XK_m,
      spawn,
-     {.v = (const char *[]){TERMINAL, "-e", "termusic", NULL}}},
+     {.v = (const char *[]){"ytfzf", "-D", "-m", NULL}}},
 
     {MODKEY, XK_Left, focusmon, {.i = -1}},
     {MODKEY | ShiftMask, XK_Left, tagmon, {.i = -1}},
