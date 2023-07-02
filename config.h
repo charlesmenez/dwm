@@ -158,6 +158,10 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
 
     {MODKEY, XK_BackSpace, spawn, {.v = (const char *[]){"sysact", NULL}}},
+    {MODKEY | ShiftMask,
+     XK_BackSpace,
+     spawn,
+     {.v = (const char *[]){"cpufreq-dmenu", NULL}}},
 
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_q, killclient, {0}},
