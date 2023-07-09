@@ -274,6 +274,7 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
 
     {MODKEY, XK_p, spawn, SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png")},
+    {MODKEY | ShiftMask, XK_p, spawn, SHCMD("automountusb")},
 
     /* { MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },
      */
