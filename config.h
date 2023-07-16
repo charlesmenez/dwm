@@ -227,6 +227,10 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_Page_Down, shifttag, {.i = +1}},
     {MODKEY | ShiftMask, XK_m, spawn,
      SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)")},
+    {MODKEY, XK_p, spawn, SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png")},
+    {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
+    {MODKEY, XK_space, zoom, {0}},
+
 };
 
 static Button buttons[] = {
