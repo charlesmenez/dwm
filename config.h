@@ -216,6 +216,10 @@ static Key keys[] = {
      spawn,
      {.v = (const char *[]){"backlight-increase", NULL}}},
 
+    {MODKEY | ControlMask, XK_j, focusmon, {.i = -1}},
+    {MODKEY | ControlMask, XK_k, focusmon, {.i = -1}},
+    {MODKEY | ControlMask, XK_h, tagmon, {.i = -1}},
+    {MODKEY | ControlMask, XK_l, tagmon, {.i = +1}},
     {MODKEY, XK_Left, focusmon, {.i = -1}},
     {MODKEY | ShiftMask, XK_Left, tagmon, {.i = -1}},
     {MODKEY, XK_Right, focusmon, {.i = +1}},
