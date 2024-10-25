@@ -117,7 +117,7 @@ static Key keys[] = {
             TAGKEYS(XK_9, 8){MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
 
-    {MODKEY | ShiftMask,
+    {MODKEY,
      XK_BackSpace,
      spawn,
      {.v = (const char *[]){"sysact", NULL}}},
