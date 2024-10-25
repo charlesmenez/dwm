@@ -178,7 +178,7 @@ static Key keys[] = {
     {MODKEY, XK_z, incrgaps, {.i = +3}},
     {MODKEY, XK_x, incrgaps, {.i = -3}},
     {MODKEY, XK_b, togglebar, {0}},
-    {MODKEY, XK_c, spawn, SHCMD(TERMINAL " -e lvim ~/dwm/config.h")},
+    {MODKEY, XK_c, spawn, SHCMD(TERMINAL " -e nvim ~/dwm/config.h")},
 
     {MODKEY, XK_y, spawn, {.v = (const char *[]){"ytfzf", "-D", NULL}}},
     {MODKEY | ControlMask,
