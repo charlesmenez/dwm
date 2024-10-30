@@ -39,8 +39,8 @@ static Sp scratchpads[] = {
     {"spcalc", spcmd2},
 };
 
-static const char *tags[] = {"one", "two",   "three", "four", "five",
-                             "six", "seven", "eight", "nine"};
+static const char *tags[] = {"", "", "", "", "",
+                             "", "", "", ""};
 
 static const Rule rules[] = {
     {TERMCLASS, NULL, NULL, 0, 0, 1, 0, -1},
