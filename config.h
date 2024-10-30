@@ -13,8 +13,7 @@ static int smartgaps = 0;
 static int showbar = 1;
 static int topbar = 1;
 static char *fonts[] = {
-    "monospace:size=8:autohint=true",
-    "NotoColorEmoji:pixelsize=8:antialias=true:autohint=true"};
+    "SauceCodePro Nerd Font:size=9"};
 static char normbgcolor[] = "#222222";
 static char normbordercolor[] = "#444444";
 static char normfgcolor[] = "#bbbbbb";
@@ -39,8 +38,7 @@ static Sp scratchpads[] = {
     {"spcalc", spcmd2},
 };
 
-static const char *tags[] = {"", "", "", "", "",
-                             "", "", "", ""};
+static const char *tags[] = { "\uf30d", "\uf489", "\uf26b", "\ueaf7", "\uf36f", "\uf338", "\uf306", "\uf337", "\uf1d3" };
 
 static const Rule rules[] = {
     {TERMCLASS, NULL, NULL, 0, 0, 1, 0, -1},
